@@ -3,7 +3,7 @@ import MapData from "./Mapdata";
 import L from 'leaflet';
 
 function Map (){
-    const position = [8.00, 82.3 ];; 
+    const position = [7.8, 82.3 ];; 
     const zoom = 8; 
     const markerIcon = new L.Icon({
         iconUrl: 'https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png', // Default marker icon
