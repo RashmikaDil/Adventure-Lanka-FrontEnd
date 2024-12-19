@@ -1,7 +1,17 @@
 
 import Map from './components/Map';
 import './index.css'
+import Header from './components/Header';
+import Step1 from './components/Step1';
+
 function Home(){
+  const handleScroll = () => {
+    window.scrollTo({
+      top: window.innerHeight, 
+      behavior: 'smooth', 
+    });
+  };
+
     return(<>
     <div className="w-full h-screen m-0 sm:h-[100vb]   md:flex  block text-[#02476e] ">
       
@@ -18,8 +28,8 @@ function Home(){
 Find Adventure !
 </h1>
 <p className='mb-6'>Find Your Favorite Things to Do in Sri Lanka</p>
-<button className='w-[230px] px-4 py-3 border-0 rounded-[15px] transition-all duration-500 bg-[#02476e] text-white cursor-pointer drop-shadow-[0_1px_10px_rgba(2,71,110,1)]  hover:drop-shadow-[0_5px_12px_rgba(2,71,110,1)]' >
-    FIND
+<button onClick={handleScroll}  className='w-[230px] px-4 py-3 border-0 rounded-[15px] transition-all duration-500 bg-[#02476e] text-white cursor-pointer drop-shadow-[0_1px_10px_rgba(2,71,110,1)]  hover:drop-shadow-[0_5px_12px_rgba(2,71,110,1)]' >
+    FIND 
 </button>
 
 
@@ -29,7 +39,9 @@ Find Adventure !
 
     </div>
     
-    
+    <Header ></Header>
+    <Step1></Step1>
+<div  className='h-[200vb]'></div>
     
     </>)
 

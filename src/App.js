@@ -1,3 +1,4 @@
+import targetRef from './Home'
 import Header from './components/Header';
 import Home from './Home';
 import './index.css';
@@ -9,7 +10,7 @@ function App() {
 
 <Home></Home>
 <Header></Header>
-<div className='h-[200vb]'></div>
+<div ref={targetRef} className='h-[200vb]'></div>
 </>
   );
 }
