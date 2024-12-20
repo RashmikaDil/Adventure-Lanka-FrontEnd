@@ -13,7 +13,7 @@ function Home(){
   };
 
     return(<>
-    <div className="w-full h-screen m-0 sm:h-[100vb]   md:flex  block text-[#02476e] ">
+    <div className="w-full h-screen m-0 sm:h-[100vb]   sm:flex  block text-[#02476e] ">
       
       <div className=' sm:z-0 hidden  md:block  z-0  h-[500px] w-full'>       
         <h1>
@@ -22,7 +22,7 @@ function Home(){
         
         </div>
 
-<div className='z-10 w-full md:h-[100vb] h-[100vb] transition-all   right-0 md:w-[50%] md:absolute  bg-gradient-to-b from-[#b5f08e] to-[#00f0e4] md:rounded-tl-[500px] flex flex-col justify-center items-center'>
+<div className='z-10 w-full sm:h-[100vb] h-[100vb] transition-all   right-0 sm:w-[50%] sm:absolute  bg-gradient-to-b from-[#b5f08e] to-[#00f0e4] sm:rounded-tl-[500px] flex flex-col justify-center text-center items-center'>
 <a className='text-5xl font-bold mb-8' href='/' >Adventure Lanka</a>     
 <h1 className='text-xl font-bold'>
 Find Adventure !
