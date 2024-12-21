@@ -23,7 +23,7 @@ const T_data = [
     coordinates: { lat: 7.9569, lng: 80.7603 },
     score: 95,
     imag:
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Sigiriya.jpg/1024px-Sigiriya.jpg",
+      "",
   },
   {
     Activity: "Surfing at Arugam Bay",
@@ -75,7 +75,7 @@ const T_data = [
     coordinates: { lat: 6.3881, lng: 81.4895 },
     score: 115,
     imag:
-      "https://www.yalasrilanka.lk/images/leopard-yala-national-park.jpg",
+      "https://www.civitatis.com/f/sri-lanka/ella/safari-parque-yala-589x392.jpg",
   },
 ];
 
