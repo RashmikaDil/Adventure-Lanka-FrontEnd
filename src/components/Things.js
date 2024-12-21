@@ -14,7 +14,7 @@ function Things({data}){
                 </img>
             </div>
             <div className="w-full h-[1fr] bg-gray-200 cursor-pointer">
-                <h1 className="text-xl font-bold pl-2 pt-1 text-[#091e2b]">{data.Activity}</h1>
+                <h1 className="text-md font-bold pl-2 pt-1 text-[#091e2b]">{data.Activity}</h1>
                 <h1 className="pl-2 text-xs italic text-[#15425e] ">{data.category}</h1>
                 <h1 className=" pl-2 text-[#15425e]  ">
                     <div className="flex items-center text-sm">
