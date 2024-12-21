@@ -15,7 +15,7 @@ function Home(){
     return(<>
     <div className="w-full h-screen m-0 sm:h-[100vb]   sm:flex  block text-[#02476e] ">
       
-      <div className=' sm:z-0 hidden  md:block  z-0  h-[500px] w-full'>       
+      <div className=' sm:z-0 hidden  sm:block  z-0  h-[500px] w-full'>       
         <h1>
  <Map ></Map>
         </h1>
