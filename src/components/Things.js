@@ -1,4 +1,4 @@
-import { faLocationDot, } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faThumbsDown, faThumbsUp, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Things({data}){
@@ -13,7 +13,7 @@ function Things({data}){
                 
                 </img>
             </div>
-            <div className="w-full h-[1fr] bg-gray-200 ">
+            <div className="w-full h-[1fr] bg-gray-200 cursor-pointer">
                 <h1 className="text-xl font-bold pl-2 pt-1 text-[#091e2b]">{data.Activity}</h1>
                 <h1 className="pl-2 text-xs italic text-[#15425e] ">{data.category}</h1>
                 <h1 className=" pl-2 text-[#15425e]  ">
@@ -29,6 +29,11 @@ function Things({data}){
             <div className="w-32 h-32 bg-[#2cd1c3]  flex flex-col justify-center items-center">
                 <h1>Score</h1>
                 <h1 className="text-2xl">{data.score}</h1>
+                <div className="flex cursor-pointer  ">
+<FontAwesomeIcon icon={faThumbsUp} className="p-2 bg-blue-700 text-white "></FontAwesomeIcon>
+<FontAwesomeIcon icon={faThumbsDown} className="p-2 bg-red-700 text-white "></FontAwesomeIcon>
+
+                </div>
             </div>
         </div>
     )

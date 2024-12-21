@@ -10,6 +10,8 @@ return(
 <h1>
 
     Best Things To Do In<p className="font-bold text-6xl text-teal-950"> Sri Lanka</p>
+
+    
 </h1>
 
 
