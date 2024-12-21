@@ -22,7 +22,7 @@ function Home(){
         
         </div>
 
-<div className='z-10 w-full sm:h-[100vb] h-[100vb] transition-all   right-0 sm:w-[50%] sm:absolute  bg-gradient-to-b from-[#b5f08e] to-[#00f0e4] sm:rounded-tl-[500px] flex flex-col justify-center text-center items-center'>
+<div className='z-10 w-full sm:h-[100vb] h-[100vb] transition-all   right-0 sm:w-[50%] sm:absolute  bg-gradient-to-b from-[#8ef0ab] to-[#00f0e4] sm:rounded-tl-[500px] flex flex-col justify-center text-center items-center'>
 <a className='text-5xl font-bold mb-8' href='/' >Adventure Lanka</a>     
 <h1 className='text-xl font-bold'>
 Find Adventure !
