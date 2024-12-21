@@ -21,7 +21,7 @@ function Things({data}){
                     <FontAwesomeIcon icon={faLocationDot} className="pr-2"></FontAwesomeIcon>
                      {data.Location}</div></h1>
                 <div className="flex pl-2 ">
-                    <h1 className="text-sm"> From {data.S_location} To {data.e_location}</h1>
+                    <h1 className="text-xs"> From {data.S_location} To {data.e_location}</h1>
                  
                 </div>
                 
