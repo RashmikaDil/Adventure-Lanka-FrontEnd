@@ -4,10 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 function Things({data}){
     
     return (
-        <div className=" flex  bg-red-700 h-32 m-2 shadow-md rounded-md overflow-hidden ">
+        <div className=" flex   bg-red-700 h-32 m-2 shadow-md rounded-md overflow-hidden ">
             <div className="w-36 h-32 bg-black ">
                 <img className="object-cover w-full h-full "
-                src={data.imag} alt="lll" 
+                src={data.imag} alt={data.Activity} 
                 >
                 
                 

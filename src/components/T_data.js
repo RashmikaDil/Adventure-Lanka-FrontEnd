@@ -76,6 +76,7 @@ const T_data = [
     score: 115,
     imag:
       "https://www.civitatis.com/f/sri-lanka/ella/safari-parque-yala-589x392.jpg",
+      
   },
 ];
 
