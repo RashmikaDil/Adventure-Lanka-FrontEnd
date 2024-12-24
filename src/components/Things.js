@@ -1,4 +1,4 @@
-import { faLocationDot, faThumbsDown, faThumbsUp, } from "@fortawesome/free-solid-svg-icons";
+import { faLocationDot, faMedal, faThumbsDown, faThumbsUp, } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Things({data}){
@@ -27,11 +27,17 @@ function Things({data}){
                 
             </div>
             <div className="w-32 h-32 bg-[#2cd1c3]  flex flex-col justify-center items-center">
-                <h1>Score</h1>
+                <h1><FontAwesomeIcon icon={faMedal}></FontAwesomeIcon></h1>
                 <h1 className="text-2xl">{data.score}</h1>
                 <div className="flex cursor-pointer  ">
-<FontAwesomeIcon icon={faThumbsUp} className="p-2 bg-blue-700 text-white "></FontAwesomeIcon>
-<FontAwesomeIcon icon={faThumbsDown} className="p-2 bg-red-700 text-white "></FontAwesomeIcon>
+<FontAwesomeIcon icon={faThumbsUp} className="p-2 w-1/2 bg-blue-700 text-white "></FontAwesomeIcon>
+<FontAwesomeIcon icon={faThumbsDown} className="p-2 w-1/2 bg-red-700 text-white "></FontAwesomeIcon>
+
+                </div>
+                <div className="flex cursor-pointer  ">
+            <h1 className="text-xs w-1/2 p-2 pt-0 text-center">221</h1>
+            <h1 className="text-xs w-1/2 p-2 pt-0 text-center">1</h1>
+
 
                 </div>
             </div>

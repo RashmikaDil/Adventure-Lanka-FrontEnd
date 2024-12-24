@@ -1,9 +1,15 @@
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import { useNavigate } from "react-router";
 
 function Header() {
   const [visibility, setVisibility] = useState(0);
+  const setNavigation = useNavigate();
+  
+  function navAuth(){
+      setNavigation("./auth");
+  }
 
   function toggleVisibility() {
     setVisibility((prevVisibility) => (prevVisibility === 1 ? 0 : 1));
@@ -34,6 +40,9 @@ function Header() {
             <a href="/">Contact</a>
           </li>
         </ul>
+        <div className="flex items-center mr-2 cursor-pointer">
+          <FontAwesomeIcon icon={faUser} onClick={navAuth}></FontAwesomeIcon>
+        </div>
 
         <div className="cursor-pointer md:hidden p-2" onClick={toggleVisibility}>
           <FontAwesomeIcon className="mr-5" icon={faBars}></FontAwesomeIcon>
