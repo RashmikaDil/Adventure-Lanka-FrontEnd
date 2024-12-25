@@ -6,6 +6,12 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     
+    function navToHome(){
+        navigate('../');
+    };
+    function navToReg(){
+     navigate('../Register');
+    };
 
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -18,7 +24,7 @@ const Login = () => {
             const data = await response.json();
             if (data.token) {
                 localStorage.setItem('token', data.token);
-                navigate('../'); 
+                navToHome(); 
             } else {
                 alert(data.message || 'Login failed');
             }
@@ -59,12 +65,11 @@ const Login = () => {
         <div className=' text-white  font-bold text-2xl md:w-[65%] w-full md:h-auto h-1/2   bg-gradient-to-b from-[#02476e] to-[#010d1a] flex flex-col justify-center items-center'>
       <h1>Welcome Back !</h1>
       <h1 className='font-normal text-sm'>or</h1>
-<button className='pl-10 pr-10 p-2 m-4 font-normal text-sm bg-transparent border-2 border-[#02476e] hover:bg-[#02476e]  rounded-3xl transition-all'>
+<button onClick={()=>navToReg()} className='pl-10 pr-10 p-2 m-4 font-normal text-sm bg-transparent border-2 border-[#02476e] hover:bg-[#02476e]  rounded-3xl transition-all'>
 
 
-  <a href='../Register'>
 Create Account
-</a>
+
 </button>
 
 

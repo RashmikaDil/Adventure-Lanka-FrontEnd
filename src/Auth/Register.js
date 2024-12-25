@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 
 const Register = () => {
+  const navigates = useNavigate( );
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -123,12 +126,11 @@ const Register = () => {
     <div className=' text-white  font-bold text-2xl md:w-[65%] w-full md:h-auto h-1/2   bg-gradient-to-b from-[#02476e] to-[#010d1a] flex flex-col justify-center items-center'>
       <h1>First Time Around here ?</h1>
       <h1 className='font-normal text-sm'>or</h1>
-<button className='pl-10 pr-10 p-2 m-4 font-normal text-sm bg-transparent border-2 border-[#02476e] hover:bg-[#02476e]  rounded-3xl transition-all'>
+<button onClick={()=> navigates('../auth')} className='pl-10 pr-10 p-2 m-4 font-normal text-sm bg-transparent border-2 border-[#02476e] hover:bg-[#02476e]  rounded-3xl transition-all'>
 
 
-  <a href='../Auth'>
+ 
 Login
-</a>
 </button>
 
 
