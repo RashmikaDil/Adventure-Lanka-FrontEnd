@@ -19,10 +19,10 @@ return(
 </div>
 <div className="flex flex-col justify-center  bg-teal-100 sm:w-1/2 w-full  ">
 
-{topActivities.map((T_data)=>{
+{topActivities.map((T_data,index)=>{
     return(<>
     
-    <Things data={T_data} key={T_data}/>
+    <Things data={T_data} key={index}/>
     
     </>)
 })}

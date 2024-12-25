@@ -21,7 +21,7 @@ function Map() {
 
   useEffect(() => {
  
-    fetch("http://localhost:3001/api/destinations")
+    fetch("http://localhost:3002/api/destinations")
       .then((response) => {
         if (!response.ok) {
           throw new Error(`HTTP error! Status: ${response.status}`);
