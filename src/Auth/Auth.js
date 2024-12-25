@@ -44,6 +44,8 @@ function Profile({username,email}){
      <h1 className="text-2xl mb-2 font-bold text-center text-[#02476e] mt-2 ">{username}</h1>
      <h1 className="text-md mb-2  text-center text-[#02476e] mt-2 ">{email}</h1>
 
+     <button classname="bg-red-700">Log Out</button>
+
     
     </>)
 };
