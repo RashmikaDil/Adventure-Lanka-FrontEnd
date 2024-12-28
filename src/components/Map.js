@@ -31,13 +31,15 @@ function Map() {
       .then((data) => {
        
         const parsedData = data.map((destination) => {
-          const [lat, lng] = destination.coordinates.split(",").map(Number);
+          const lat = parseFloat(destination.coordinates.split(',')[0].split('°')[0].trim());
+          const lng = parseFloat(destination.coordinates.split(',')[1].split('°')[0].trim());
           return { ...destination, coordinates: [lat, lng] };
         });
         setDestinations(parsedData);
       })
       .catch((error) => console.error("Error fetching destinations:", error));
   }, []);
+
 
 let a = Number;
 
@@ -58,9 +60,9 @@ let a = Number;
           > {a = ((destination.like/(destination.like + destination.dislike))*10).toFixed(1)}
             <Popup className="w-auto">
           
-
            
               <div>
+             
               <img src={destination.imag} alt="imagess"></img>
             <h1 className="font-bold text-md mt-2 "><FontAwesomeIcon icon={faMapLocationDot}></FontAwesomeIcon> {destination.name}</h1></div>
             <h1 className="font-bold text-xs italic text-gray-500 p-[1px] rounded-2xl text-center m-1 bg-yellow-300 ">{destination.category}</h1>

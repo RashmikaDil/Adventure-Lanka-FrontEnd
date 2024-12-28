@@ -3,6 +3,7 @@ import Map from './components/Map';
 import './index.css'
 import Header from './components/Header';
 import Step1 from './components/Step1';
+import DestinationList from './DestinationList';
 
 function Home(){
   const handleScroll = () => {
@@ -42,7 +43,9 @@ Find Adventure !
     
     <Header ></Header>
     <Step1></Step1>
-<div  className='h-[200vb]'></div>
+<div  className='h-[200vb]'>
+  <DestinationList/>
+</div>
     
     </>)
 

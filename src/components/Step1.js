@@ -23,12 +23,16 @@ return(
     return(<>
     
     <Things data={T_data} key={index}/>
-    
+
     </>)
 })}
 </div>
+
 </div>
-    
+
+    <div>
+
+    </div>
     </>
 )
 
