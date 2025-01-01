@@ -3,12 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-function Header() {
+function Header({f}) {
   const [visibility, setVisibility] = useState(0);
   const setNavigation = useNavigate();
   
   function navAuth(){
       setNavigation("./profile");
+      if(f==="view"){
+        setNavigation("../profile");
+      }
   }
 
   function toggleVisibility() {
@@ -17,7 +20,7 @@ function Header() {
 
   return (
     <>
-      <div className="text-[#5efff7] sticky top-0 bg-[#02476e] drop-shadow flex z-20 h-[auto] justify-between">
+      <div className="text-[#80cefc] sticky top-0 bg-[#02476e] drop-shadow flex z-20 h-[auto] justify-between">
         <div className="pl-3 p-2">
           <a href="/">LOGO</a>
         </div>

@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import DestinationCard from './DestinationCard';
-
-const DestinationsList = () => {
+ 
+const DestinationsList = ( {set}) => {
     const [destinations, setDestinations] = useState([]);
     
     useEffect(() => {
@@ -27,10 +27,10 @@ useEffect(() => {
           "http://localhost:3002/api/destinations"
         );
 
-        // Calculate points for each destination
+       //Cal points
         const updatedDestinations = response.data.map((destination) => ({
           ...destination,
-          points: destination.likes?.length + (destination.likes?.length - destination.dislikes?.length || 0),
+          points: destination.likes?.length  + (destination.likes?.length - destination.dislikes?.length  || 0),
         }));
 
         setDestinations(updatedDestinations);
@@ -41,20 +41,33 @@ useEffect(() => {
 
     fetchDestinations();
   }, []);
-
-  // Sort destinations by points in descending order
   const topDestinations = [...destinations]
-    .sort((a, b) => b.points - a.points)
-    .slice(0, 5);
+  .sort((a, b) => b.points - a.points)
+  .slice(0, 5);
+
+  if (set==='top5'){
     return (
-        <div>
-            <div className="flex flex-wrap  ">
-                {topDestinations.map(destination => (
-                    <DestinationCard key={destination._id} destination={destination} />
-                ))}
-            </div>
-        </div>
-    );
+      <div>
+          <div className="flex flex-wrap p-4 pl-10 pr-10 justify-center bg-[#80cefc] ">
+              {topDestinations.map(destination => (
+                  <DestinationCard key={destination._id} destination={destination} />
+              ))}
+          </div>
+      </div>
+  );
+  }else{
+    return (
+      <div>
+          <div className="flex flex-wrap p-10  ">
+              {destinations.map(destination => (
+                  <DestinationCard key={destination._id} destination={destination} />
+              ))}
+          </div>
+      </div>
+    )
+  }
+
+    
 };
 
 export default DestinationsList;

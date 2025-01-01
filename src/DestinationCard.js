@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar, faThumbsDown, faThumbsUp, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { useNavigate } from 'react-router';
+
 
 const DestinationCard = ({ destination }) => {
     
@@ -50,7 +52,11 @@ const DestinationCard = ({ destination }) => {
     const r = Number(likes / (likes + dislikes) * 5);
     let ratings = Number(r.toFixed(1));
     let points = (likes + (likes - dislikes));
-    
+
+const navigate = useNavigate();
+const handleNavigation = (destinationId) => {
+  navigate("/destination", { state: destinationId });
+};
 
     return (<>       
     
@@ -66,9 +72,11 @@ const DestinationCard = ({ destination }) => {
                  <div className='flex relative text-white  h-2/3 bg-gradient-to-t from-black to-transparent p-4 rounded-xl  '>
                  
                  <div className=''>
-                 <h1 className='absolute bottom-10 text-md font-bold '>{destination.name} </h1>
-                 <h1 className='absolute bottom-2 text-sm  '>{destination.location} </h1>
-                 </div>
+                   
+                 <h1 onClick={() => handleNavigation(destination._id)} className='absolute bottom-14 text-md font-bold '>{destination.name} </h1>
+                 
+                 
+                 <h1 className='absolute bottom-8 text-sm  '>{destination.location} </h1>
                  <div className='absolute right-5 bottom-2 flex '>
                     
                     <div>
@@ -90,6 +98,8 @@ const DestinationCard = ({ destination }) => {
                     {dislikes}
                     </div>
                     </div> 
+                 </div>
+                
                     </div>
                  
             </div>

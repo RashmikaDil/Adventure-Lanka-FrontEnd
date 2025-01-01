@@ -10,6 +10,7 @@ import Login from './Auth/login';
 import Home from './Home';
 import Profile from './Auth/Profile';
 import Register from './Auth/Register';
+import DestinationView from './components/DestinationView';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -20,6 +21,7 @@ root.render(
   <Route path='/home' element={<Home></Home>}></Route>
   <Route path='/Profile' element={<Profile></Profile>}></Route>
   <Route path='/Register' element={<Register></Register>}></Route>
+  <Route path='/destination' element={<DestinationView></DestinationView>}></Route>
 </Routes>
 </BrowserRouter>
 );
