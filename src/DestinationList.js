@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import DestinationCard from './DestinationCard';
+import DestinationCard from './components/DestinationCard';
  
 const DestinationsList = ( {set}) => {
     const [destinations, setDestinations] = useState([]);
@@ -48,7 +48,7 @@ useEffect(() => {
   if (set==='top5'){
     return (
       <div>
-          <div className="flex flex-wrap p-4 pl-10 pr-10 justify-center bg-[#80cefc] ">
+          <div className="flex flex-wrap p-4 pl-10 pr-10 justify-center bg-white ">
               {topDestinations.map(destination => (
                   <DestinationCard key={destination._id} destination={destination} />
               ))}

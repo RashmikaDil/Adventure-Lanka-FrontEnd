@@ -5,6 +5,7 @@ const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
+    const apiUrl = process.env.REACT_APP_API_URL;
     
     function navToHome(){
         navigate('../');
@@ -16,7 +17,7 @@ const Login = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch('http://localhost:3002/api/auth/login', {
+            const response = await fetch(`${apiUrl}api/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ email, password }),

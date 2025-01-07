@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 
 const Register = () => {
   const navigates = useNavigate( );
+  const apiUrl = process.env.REACT_APP_API_URL;
   
   const [formData, setFormData] = useState({
     name: '',
@@ -38,7 +39,7 @@ const Register = () => {
     };
 
     try {
-      const response = await fetch('http://localhost:3002/api/auth/register', {
+      const response = await fetch(`${apiUrl}api/auth/register`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

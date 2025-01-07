@@ -10,7 +10,7 @@ import Login from './Auth/login';
 import Home from './Home';
 import Profile from './Auth/Profile';
 import Register from './Auth/Register';
-import DestinationView from './components/DestinationView';
+import DestinationView from './DestinationView';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
