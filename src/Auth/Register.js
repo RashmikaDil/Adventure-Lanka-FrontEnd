@@ -63,14 +63,14 @@ const Register = () => {
 
 
 <div className='md:bg-gray-200 h-screen flex md:justify-center md:items-center w-full'>
-      <div className="md:flex  bg-white  md:h-auto md:w-[900px] w-full h-1/2 md:shadow-lg text-[#02476e]">
+      <div className="md:flex  bg-white  md:h-auto md:w-[900px] w-full h-1/2 md:shadow-lg text-gray-900">
         
     <div className="md:w-[45%] w-full h-auto p-8 pl-10 mb-10 md:mt-5">
       <h2 className='text-xl m-5 mb-8'>Register</h2>
       <form onSubmit={handleSubmit} className='flex flex-col'>
         <label htmlFor="name" className='font-bold mb-2'>Username</label>
         <input
-        className='ml-1 p-2 pl-4 mb-2 border-[#02476e] bg-gray-200 rounded-3xl '
+        className='ml-1 p-2 pl-4 mb-2 border-gray-900 bg-gray-200 rounded-3xl '
           type="text"
           id="name"
           name="name"
@@ -82,7 +82,7 @@ const Register = () => {
 
         <label htmlFor="email" className='font-bold mb-2'>Email</label>
         <input
-        className='ml-1 p-2 pl-4 mb-2 border-[#02476e] bg-gray-200 rounded-3xl '
+        className='ml-1 p-2 pl-4 mb-2 border-gray-900 bg-gray-200 rounded-3xl '
           type="email"
           placeholder='Email'
           id="email"
@@ -94,7 +94,7 @@ const Register = () => {
 
         <label htmlFor="password" className='font-bold mb-2'>Password</label>
         <input
-        className='ml-1 p-2 pl-4 mb-2 border-[#02476e] bg-gray-200 rounded-3xl '
+        className='ml-1 p-2 pl-4 mb-2 border-gray-900 bg-gray-200 rounded-3xl '
           type="password"
           id="password"
           placeholder='Password'
@@ -106,7 +106,7 @@ const Register = () => {
 
         <label htmlFor="confirmPassword" className='font-bold mb-2'>Confirm Password</label>
         <input
-        className='ml-1 p-2 pl-4 mb-2 border-[#02476e] bg-gray-200 rounded-3xl '
+        className='ml-1 p-2 pl-4 mb-2 border-gray-900 bg-gray-200 rounded-3xl '
           type="password"
           id="confirmPassword"
           placeholder='ConfirmPassword'
@@ -116,7 +116,7 @@ const Register = () => {
           required
         />
 
-        <button className=' bg-[#02476e] p-2 text-white mt-5 md:mb-5 rounded-2xl'  type="submit" >Register</button>
+        <button className=' bg-gray-900 p-2 text-white mt-5 md:mb-5 rounded-2xl'  type="submit" >Register</button>
      
 
       {errorMessage && <p className="error-message">{errorMessage}</p>}
@@ -124,10 +124,10 @@ const Register = () => {
       </form>
     </div>
     
-    <div className=' text-white  font-bold text-2xl md:w-[65%] w-full md:h-auto h-1/2   bg-gradient-to-b from-[#02476e] to-[#010d1a] flex flex-col justify-center items-center'>
+    <div className=' text-white  font-bold text-2xl md:w-[65%] w-full md:h-auto h-1/2   bg-gradient-to-b from-gray-900 to-[#010d1a] flex flex-col justify-center items-center'>
       <h1>First Time Around here ?</h1>
       <h1 className='font-normal text-sm'>or</h1>
-<button onClick={()=> navigates('../auth')} className='pl-10 pr-10 p-2 m-4 font-normal text-sm bg-transparent border-2 border-[#02476e] hover:bg-[#02476e]  rounded-3xl transition-all'>
+<button onClick={()=> navigates('../auth')} className='pl-10 pr-10 p-2 m-4 font-normal text-sm bg-transparent border-2 border-gray-900 hover:bg-gray-900  rounded-3xl transition-all'>
 
 
  

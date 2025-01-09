@@ -1,101 +1,18 @@
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React from 'react';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar, faThumbsDown, faThumbsUp, faTrophy } from '@fortawesome/free-solid-svg-icons';
+import { faStar,  faTrophy } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
+import LikeDislike from './LikeDislike';
 
 
 const DestinationCard = ({ destination }) => {
  
-  const [likes, setLikes] = useState(destination.likes.length || 0);
-  const [dislikes, setDislikes] = useState(destination.dislikes.length || 0);
-  const [isLiked, setIsLiked] = useState(false);
-  const [isDisliked, setIsDisliked] = useState(false);
-  const apiUrl = process.env.REACT_APP_API_URL;
-
+  const likes = destination.likes.length || 0;
+  const dislikes = destination.dislikes.length || 0;
 
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchProfile = async () => {
-      const token = localStorage.getItem('token');
-      if (!token) return;
-
-      try {
-        const response = await axios.get(`${apiUrl}api/auth/profile`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-
-        // Check if the user has already liked or disliked this destination
-        const userId = response.data._id;
-        setIsLiked(destination.likes.includes(userId));
-        setIsDisliked(destination.dislikes.includes(userId));
-      } catch (error) {
-        console.error('Error fetching profile:', error);
-      }
-    };
-
-    fetchProfile();
-  }, [destination.likes, destination.dislikes ,apiUrl]);
-
-  const likeDestination = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) return;
-
-      const response = await axios.post(
-        `${apiUrl}api/destinations/${destination._id}/like`,
-        { toggle: isLiked }, // Pass a toggle flag to clear the like
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      setLikes(response.data.likesCount);
-      setDislikes(response.data.dislikesCount);
-
-      // Toggle the like status
-      setIsLiked(!isLiked);
-      setIsDisliked(false)
-      if (isLiked) {setIsDisliked(false);} // Clear dislike if currently active
-    } catch (error) {
-      console.error('Error liking destination:', error);
-    }
-  };
-
-  const dislikeDestination = async () => {
-    try {
-      const token = localStorage.getItem('token');
-      if (!token) return;
-
-      const response = await axios.post(
-        `${apiUrl}api/destinations/${destination._id}/dislike`,
-        { toggle: isDisliked }, // Pass a toggle flag to clear the dislike
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-
-      setLikes(response.data.likesCount);
-      setDislikes(response.data.dislikesCount);
-
-      // Toggle the dislike status
-      setIsDisliked(!isDisliked);
-      setIsLiked(false);
-      if (isDisliked){
-        setIsLiked(false);
-      } // Clear like if currently active
-    } catch (error) {
-      console.error('Error disliking destination:', error);
-    }
-  };
 
   const r = likes + dislikes > 0 ? (likes / (likes + dislikes)) * 5 : 0;
   const ratings = Number(r.toFixed(1));
@@ -122,28 +39,13 @@ const DestinationCard = ({ destination }) => {
         <div>
           <h1
             onClick={() => handleNavigation(destination._id)}
-            className="absolute bottom-14 text-md font-bold cursor-pointer"
+            className="absolute bottom-8 text-md font-bold cursor-pointer"
           >
             {destination.name}
           </h1>
-          <h1 className="absolute bottom-8 text-sm">{destination.location}</h1>
-          <div className="absolute right-5 bottom-2 flex">
-            <div>
-              <FontAwesomeIcon
-                icon={faThumbsUp}
-                onClick={likeDestination}
-                className={`ml-2 mr-1 cursor-pointer ${isLiked ? 'text-blue-700' : ''}`}
-              />
-              {likes}
-            </div>
-            <div>
-              <FontAwesomeIcon
-                icon={faThumbsDown}
-                onClick={dislikeDestination}
-                className={`ml-2 mr-1 cursor-pointer ${isDisliked ? 'text-red-700' : ''}`}
-              />
-              {dislikes}
-            </div>
+          
+          <div className="absolute right-5 bottom-2 flex ">
+            <LikeDislike destination={destination}></LikeDislike>
           </div>
         </div>
       </div>

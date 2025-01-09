@@ -26,7 +26,7 @@ function LikeDislike({ destination }) {
         });
 
 
-        // Check if the user has already liked or disliked 
+       
         const userId = response.data._id;
         setIsLiked(destination.likes.includes(userId));
         setIsDisliked(destination.dislikes.includes(userId));
@@ -97,19 +97,19 @@ function LikeDislike({ destination }) {
 return(<>
 
 <div className="flex">
- <div className={`p-2 `}>
+ <div className={`p-1 `}>
               <FontAwesomeIcon
                 icon={faThumbsUp}
                 onClick={likeDestination}
-                className={`ml-2 mr-1 cursor-pointer  ${isLiked ? 'text-blue-700' : ''}`}
+                className={`ml-1 mr-1 cursor-pointer  ${isLiked ? 'text-blue-700' : ''}`}
               />
               {likes}
             </div>
-            <div  className="p-2"> 
+            <div  className="p-1"> 
               <FontAwesomeIcon
                 icon={faThumbsDown}
                 onClick={dislikeDestination}
-                className={`ml-2 mr-1 cursor-pointer  ${isDisliked ? 'text-red-700' : ''}`}
+                className={`ml-1 mr-1 cursor-pointer  ${isDisliked ? 'text-red-700' : ''}`}
               />
               {dislikes}
             </div>

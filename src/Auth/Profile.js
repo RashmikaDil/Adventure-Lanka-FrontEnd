@@ -50,7 +50,7 @@ const Profile = () => {
 <ProtectedRoute>
     <div className='w-full h-screen bg-gray-200 flex  justify-center items-center  '>
         
-        <div className= ' text-[#02476e] rounded-sm  bg-white shadow-lg md:w-1/2 w-full h-full md:h-1/2 ' >
+        <div className= ' text-gray-900 rounded-sm  bg-white shadow-lg md:w-1/2 w-full h-full md:h-1/2 ' >
         <div className='flex items-center'>
         <FontAwesomeIcon onClick={navTo} icon={faArrowLeft} className='m-4 cursor-pointer  mr-10'></FontAwesomeIcon><h1>Profile</h1>
        </div>

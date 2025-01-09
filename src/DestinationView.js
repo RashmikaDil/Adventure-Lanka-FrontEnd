@@ -8,6 +8,7 @@ import CommentForm from "./components/commentForm";
 import CommentCard from "./components/comment";
 import Timeline from "./components/timeLine";
 import LikeDislike from "./components/LikeDislike";
+import GoodBad from "./components/GoodBad";
 
 function DestinationView() {
 
@@ -91,7 +92,7 @@ function DestinationView() {
   return (
     <>
       <Header f="view" />
-      <div className="p-12 bg-white text-[#02476e]">
+      <div className="p-12 bg-white text-gray-900">
         <div className="flex justify-between">
           <div>
             <h2 className="text-3xl font-bold">{destination.name}</h2>
@@ -110,7 +111,7 @@ function DestinationView() {
         
         <div className="md:flex mt-10">
           <img src={destination.imag} alt={destination.name} className="md:w-1/2 w-full md:rounded-l-2xl h-[50vb]" />
-          <div className="p-10 md:w-1/2 w-full bg-[#02476e] text-[#80cefc] md:rounded-r-xl">
+          <div className="p-10 md:w-1/2 w-full bg-gray-900 text-gray-400 md:rounded-r-xl">
             <table>
               <tbody>
                 <tr>
@@ -138,11 +139,14 @@ function DestinationView() {
           </div>
         </div>
         <div className="p-8">
-          <Timeline pid={destinationId}></Timeline>
-          <h1 className="text-3xl font-bold mb-10 ">Description</h1>
+          
+        <h1 className="text-3xl font-bold mb-10 ">Description</h1>
           <p className="text-justify">{destination.description}</p>
-
-          <div className=" p-5 md:flex  w-full bg-[#b8e5ff] mt-10">
+          <h1 className="text-3xl font-bold mb-10 mt-10">Traveling Condition</h1>
+<GoodBad destination={destination}></GoodBad>
+          <Timeline pid={destinationId}></Timeline>
+          
+          <div className=" p-5 w-full md:flex mt-10 border-[1px] rounded-xl shadow-sm">
             <div className="w-full md:w-1/2">
               <CommentForm pId={destinationId} uid={uid} name={name} />
             </div>
