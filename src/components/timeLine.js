@@ -16,7 +16,7 @@ const BestTimeTimeline = ({ pid }) => {
         const filterById = response.data.find((destination) => destination._id === pid);
 
         if (filterById) {
-          setDestination(filterById.visitTimeline || []); // Ensure fallback to an empty array
+          setDestination(filterById.visitTimeline || []); 
         } else {
           setError("Destination not found.");
         }

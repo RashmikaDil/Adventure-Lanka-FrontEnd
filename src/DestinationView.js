@@ -9,6 +9,11 @@ import CommentCard from "./components/comment";
 import Timeline from "./components/timeLine";
 import LikeDislike from "./components/LikeDislike";
 import GoodBad from "./components/GoodBad";
+import BarChart from "./components/BarChart";
+import WeatherWidget from "./components/Weather";
+import MapCard from "./components/MapCard";
+import Item from "./components/Item";
+
 
 function DestinationView() {
 
@@ -91,7 +96,7 @@ function DestinationView() {
 
   return (
     <>
-      <Header f="view" />
+      <Header f="view" className="z-10" />
       <div className="p-12 bg-white text-gray-900">
         <div className="flex justify-between">
           <div>
@@ -102,6 +107,7 @@ function DestinationView() {
               <p><FontAwesomeIcon icon={faTrophy} className="mr-2" /> {points}</p>
               
             </div>
+            
           </div>
           <div>
           <LikeDislike destination={destination}></LikeDislike>
@@ -110,7 +116,7 @@ function DestinationView() {
         </div>
         
         <div className="md:flex mt-10">
-          <img src={destination.imag} alt={destination.name} className="md:w-1/2 w-full md:rounded-l-2xl h-[50vb]" />
+          <img src={destination.imag} alt={destination.name} className="md:w-1/2 w-full md:rounded-l-2xl  object-cover object-center h-[50vb]" />
           <div className="p-10 md:w-1/2 w-full bg-gray-900 text-gray-400 md:rounded-r-xl">
             <table>
               <tbody>
@@ -130,22 +136,48 @@ function DestinationView() {
                   <td className="p-2">{destination.location}</td>
                 </tr>
                 <tr>
-                  <td><FontAwesomeIcon icon={faClockFour} /></td>
-                  <td className="p-2 font-bold">Duration:</td>
-                  <td className="p-2">{destination.Duration}</td>
+                  <td><FontAwesomeIcon icon={faLocationDot} /></td>
+                  <td className="p-2 font-bold">District:</td>
+                  <td className="p-2">{destination.district}</td>
                 </tr>
+                <tr>
+                  <td><FontAwesomeIcon icon={faStar} /></td>
+                  <td className="p-2 font-bold">Tourist satisfaction: </td>
+                  <td className="p-2">
+                    
+                  {rating === undefined && "Undefined"}
+                  {rating >= 0 && rating < 2 && <h1 className="font-bold w-20 text-white rounded-xl flex items-center justify-center bg-red-700">Very Poor</h1>}
+                  {rating >= 2 && rating < 3 && <h1 className="font-bold w-20 text-white rounded-xl flex items-center justify-center bg-yellow-500"> Poor</h1>}
+                  {rating >= 3 && rating < 4 && <h1 className="font-bold w-20 text-white rounded-xl flex items-center justify-center bg-blue-600"> Good</h1>}
+                  {rating >= 4 && rating < 5 && <h1 className="font-bold w-20 text-white rounded-xl flex items-center justify-center bg-green-600"> Very Good</h1>}
+                  {rating  >=5 && <h1 className="font-bold w-20 text-white rounded-xl flex items-center justify-center bg-pink-600"> Excellent</h1>}
+                    
+                      </td>
+                </tr>
+              
               </tbody>
             </table>
+            
           </div>
         </div>
         <div className="p-8">
           
         <h1 className="text-3xl font-bold mb-10 ">Description</h1>
           <p className="text-justify">{destination.description}</p>
-          <h1 className="text-3xl font-bold mb-10 mt-10">Traveling Condition</h1>
-<GoodBad destination={destination}></GoodBad>
-          <Timeline pid={destinationId}></Timeline>
           
+          <h1 className="text-3xl font-bold mb-10 mt-10">Traveling Condition</h1>
+            <GoodBad destination={destination}></GoodBad>
+            <Timeline pid={destinationId}></Timeline>
+            <h1 className="text-3xl font-bold mb-10 mt-10">Weather</h1>
+            <WeatherWidget destination={destination}></WeatherWidget>
+
+            <h1 className="text-3xl font-bold mb-10 mt-10">Tourist</h1>
+            <p className="text-justify mb-2">This graph shows Avarage Tourist Attendence at <b>{destination.name}</b> </p>
+          <BarChart mons={destination.mons}></BarChart>
+          <h1 className="text-3xl font-bold mb-10 mt-10">Map</h1>
+          <MapCard className="z-0" destination={destination}></MapCard>
+         <Item category={destination.category} className="m-10" num="4"></Item>
+           
           <div className=" p-5 w-full md:flex mt-10 border-[1px] rounded-xl shadow-sm">
             <div className="w-full md:w-1/2">
               <CommentForm pId={destinationId} uid={uid} name={name} />

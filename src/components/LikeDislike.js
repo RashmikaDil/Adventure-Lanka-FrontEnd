@@ -45,7 +45,7 @@ function LikeDislike({ destination }) {
 
       const response = await axios.post(
         `${apiUrl}api/destinations/${destination._id}/like`,
-        { toggle: isLiked }, // Pass a toggle flag to clear the like
+        { toggle: isLiked }, 
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -56,10 +56,10 @@ function LikeDislike({ destination }) {
       setLikes(response.data.likesCount);
       setDislikes(response.data.dislikesCount);
 
-      // Toggle the like status
+     
       setIsLiked(!isLiked);
       setIsDisliked(false)
-      if (isLiked) {setIsDisliked(false);} // Clear dislike if currently active
+      if (isLiked) {setIsDisliked(false);} 
     } catch (error) {
       console.error('Error liking destination:', error);
     }

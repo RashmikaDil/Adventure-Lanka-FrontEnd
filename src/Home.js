@@ -2,9 +2,9 @@
 import Map from './components/Map';
 import './index.css'
 import Header from './components/Header';
-import TitleHeader from './components/TitleHeader';
 import Item from './components/Item';
 import Footer from './components/footer';
+import Search from './components/Search';
 
 
 function Home(){
@@ -46,10 +46,10 @@ Find Adventure !
    
    
 
-  <TitleHeader title="Top Adventures" i="trophy"></TitleHeader>
+
  
   <Item category="any" num="4"></Item>
-  
+  <Search></Search>
 
 <Footer></Footer>
     
