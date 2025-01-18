@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 
 function Header({f}) {
-  const [visibility, setVisibility] = useState(0);
+  const setVisibility = useState(0);
   const setNavigation = useNavigate();
   
   function navAuth(){

@@ -1,7 +1,6 @@
 
 import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
 import L from "leaflet";
-import {useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faMapLocationDot,  } from "@fortawesome/free-solid-svg-icons";
 

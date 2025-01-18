@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSun, faTemperatureHigh, faTemperatureLow, faTemperatureThreeQuarters, faWater, faWind } from '@fortawesome/free-solid-svg-icons';
+import {faTemperatureThreeQuarters, faWater, faWind } from '@fortawesome/free-solid-svg-icons';
 
 const WeatherWidget = ({ destination }) => {
   const [weather, setWeather] = useState(null);

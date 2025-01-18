@@ -3,7 +3,7 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import Header from "./components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faClockFour, faLocationDot, faMapLocation, faMoneyBill1Wave, faStar, faTable, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import {  faLocationDot, faMapLocation, faMoneyBill1Wave, faStar, faTable, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import CommentForm from "./components/commentForm";
 import CommentCard from "./components/comment";
 import Timeline from "./components/timeLine";
@@ -36,7 +36,7 @@ function DestinationView() {
       }
     };
     fetchComments();
-  }, );
+  },[apiUrl] );
 
   useEffect(() => {
     const fetchDestination = async () => {
@@ -53,7 +53,7 @@ function DestinationView() {
     if (destinationId) {
       fetchDestination();
     }
-  }, [destinationId]);
+  }, [destinationId,apiUrl]);
   
   // Fetch user  data
   useEffect(() => {
@@ -72,7 +72,7 @@ function DestinationView() {
     };
 
     fetchProfile();
-  }, []);
+  }, [apiUrl]);
 
   if (error) {
     return <p>{error}</p>;
