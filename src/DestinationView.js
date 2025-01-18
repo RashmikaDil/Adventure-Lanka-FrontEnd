@@ -98,8 +98,8 @@ function DestinationView() {
     <>
       <Header f="view" className="z-10" />
       <div className="md:p-12 bg-white text-gray-900">
-        <div className="flex justify-between">
-          <div>
+        <div className="flex justify-between md:m-0 m-8 ">
+          <div className="">
             <h2 className="text-3xl font-bold">{destination.name}</h2>
             <p><FontAwesomeIcon icon={faMapLocation} /> {destination.district}</p>
             <div className="w-32 flex justify-between">

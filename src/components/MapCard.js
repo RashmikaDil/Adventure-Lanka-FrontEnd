@@ -24,7 +24,7 @@ const markerIcon = new L.Icon({
     return (
         <div className=" h-[500px] w-full">
             
-        <MapContainer center={position} zoom={zoom} className="h-full w-full">
+        <MapContainer center={position} zoom={zoom} className="h-[500px] w-full">
         <TileLayer
   url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}"
   attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://www.esri.com/en-us/home">Esri</a>'
