@@ -26,7 +26,7 @@ function DestinationView() {
   const [profile, setProfile] = useState(null); 
 
 
-  useEffect(() => {
+
     const fetchComments = async () => {
       try {
         const response = await axios.get(`${apiUrl}api/c_model`);
@@ -36,7 +36,7 @@ function DestinationView() {
       }
     };
     fetchComments();
-  },[apiUrl] );
+  
 
   useEffect(() => {
     const fetchDestination = async () => {

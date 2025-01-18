@@ -1,29 +1,38 @@
 import { faTrash, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
+import { useEffect, useState } from "react";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-function CommentCard({ id, uid }) {
+function CommentCard({ id, uid, onDelete }) {
+  const [deleted, setDeleted] = useState(false);
+
   const handleDeleteComment = async () => {
     try {
       const response = await axios.delete(`${apiUrl}api/c_model/${id._id}`);
       console.log("Comment deleted:", response);
+      setDeleted(true); 
     } catch (error) {
       console.error("Error deleting comment:", error);
     }
   };
 
+
+  useEffect(() => {
+    if (deleted && onDelete) {
+      onDelete(id._id);
+    }
+  }, [deleted, id._id, onDelete]);
+  if (deleted) return null;
+
   return (
     <div className="flex items-start bg-white p-4 rounded-md shadow-xl border-[1px]  w-full">
- 
       <div className="flex justify-center items-center w-12 h-12 rounded-full bg-gray-200">
         <FontAwesomeIcon icon={faUser} className="text-gray-500" />
       </div>
 
- 
       <div className="ml-4 w-full">
-    
         {id.uid === uid && (
           <div className="float-right">
             <FontAwesomeIcon
@@ -34,10 +43,8 @@ function CommentCard({ id, uid }) {
           </div>
         )}
 
-    
         <div className="text-sm font-medium text-gray-900">{id.name}</div>
 
-   
         <p className="mt-1 text-sm text-gray-600">{id.content}</p>
       </div>
     </div>

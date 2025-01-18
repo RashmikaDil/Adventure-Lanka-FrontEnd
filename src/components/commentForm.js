@@ -1,13 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 const apiUrl = process.env.REACT_APP_API_URL;
 
-
-const CommentForm = ({uid,name,pId}) => {
+const CommentForm = ({uid, name, pId}) => {
   const [content, setContent] = useState('');
   const [message, setMessage] = useState('');
   
-    
+  // Clear content after successful submission
+  useEffect(() => {
+    if (message === 'Comment created successfully!') {
+      setContent('');
+    }
+  }, [message]);
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -17,7 +22,6 @@ const CommentForm = ({uid,name,pId}) => {
         name,
         pId,
         content,
-        
       });
 
       setMessage('Comment created successfully!');
@@ -27,7 +31,6 @@ const CommentForm = ({uid,name,pId}) => {
       console.error(error);
     }
   };
-  
 
   return (
     <div className='w-full p-4 bg-white rounded-lg shadow-md border-[1px] '>
@@ -35,7 +38,6 @@ const CommentForm = ({uid,name,pId}) => {
       <form onSubmit={handleSubmit}>
         
         <div>
-         
           <textarea 
             className='w-full p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none'
             value={content}
