@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+const apiUrl = process.env.REACT_APP_API_URL;
+
 
 const CommentForm = ({uid,name,pId}) => {
   const [content, setContent] = useState('');
   const [message, setMessage] = useState('');
-  const apiUrl = process.env.REACT_APP_API_URL;
   
     
   const handleSubmit = async (event) => {

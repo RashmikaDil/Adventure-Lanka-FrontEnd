@@ -8,7 +8,7 @@ function Map() {
 
   const position = [7.8, 82.3];
   const zoom = 8;
-const apiUrl = process.env.REACT_APP_API_URL;
+  const apiUrl = process.env.REACT_APP_API_URL;
  
   const markerIcon = new L.Icon({
     iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png", // Default marker icon
@@ -43,41 +43,41 @@ const apiUrl = process.env.REACT_APP_API_URL;
   
 
 
-  return (
-    <div className="map-container h-screen w-full">
-    <MapContainer center={position} zoom={zoom} className="h-full w-full">
-      <TileLayer
-        url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://www.esri.com/en-us/home">Esri</a>'
+    return (
+      <div className="map-container h-screen w-full">
+      <MapContainer center={position} zoom={zoom} className="h-full w-full">
+        <TileLayer
+          url="https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="https://www.esri.com/en-us/home">Esri</a>'
+        />
+
+        {destinations.map((destination, index) => (
+          <Marker key={index} position={destination.coordinates} icon={markerIcon}>
+            <Popup className="w-[300px]">
+    <div className=" bg-white rounded-lg ">
+      <img
+        src={destination.imag}
+        alt="Location"
+        className="w-full h-40 object-cover rounded-lg"
       />
+      <h1 className="font-semibold text-lg mt-3 text-gray-900 flex items-center justify-center">
+        <FontAwesomeIcon icon={faMapLocationDot} className="mr-2 text-blue-600" />
+        {destination.name}
+      </h1>
+      <h2 className="text-sm italic text-gray-500 py-1 px-2 rounded-md bg-yellow-100 mt-2 inline-block">
+        {destination.category}
+      </h2>
+      <p className="mt-3 text-gray-600 text-sm">
+        {destination.description || "Explore this amazing destination!"}
+      </p>
+    </div>
+  </Popup>
 
-      {destinations.map((destination, index) => (
-        <Marker key={index} position={destination.coordinates} icon={markerIcon}>
-          <Popup className="w-[300px]">
-  <div className=" bg-white rounded-lg ">
-    <img
-      src={destination.imag}
-      alt="Location"
-      className="w-full h-40 object-cover rounded-lg"
-    />
-    <h1 className="font-semibold text-lg mt-3 text-gray-900 flex items-center justify-center">
-      <FontAwesomeIcon icon={faMapLocationDot} className="mr-2 text-blue-600" />
-      {destination.name}
-    </h1>
-    <h2 className="text-sm italic text-gray-500 py-1 px-2 rounded-md bg-yellow-100 mt-2 inline-block">
-      {destination.category}
-    </h2>
-    <p className="mt-3 text-gray-600 text-sm">
-      {destination.description || "Explore this amazing destination!"}
-    </p>
-  </div>
-</Popup>
-
-        </Marker>
-      ))}
-    </MapContainer>
-  </div>
-  );
+          </Marker>
+        ))}
+      </MapContainer>
+    </div>
+    );
 }
 
 export default Map;

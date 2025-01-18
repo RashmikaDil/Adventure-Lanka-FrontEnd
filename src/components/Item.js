@@ -5,10 +5,11 @@ import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapLocation, faStar, faTrophy } from "@fortawesome/free-solid-svg-icons";
 
+
 const Item = ({ category, num }) => {
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [destinations, setDestinations] = useState([]);
   const [loading, setLoading] = useState(true);
-  const apiUrl = process.env.REACT_APP_API_URL;
   const navigate = useNavigate();
 
 

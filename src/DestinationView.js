@@ -13,23 +13,23 @@ import BarChart from "./components/BarChart";
 import WeatherWidget from "./components/Weather";
 import MapCard from "./components/MapCard";
 import Item from "./components/Item";
+import Footer from './components/footer';
 
 
 function DestinationView() {
-
+  const apiUrl = process.env.REACT_APP_API_URL;
   const [comments, setComments] = useState([]);
   const location = useLocation();
   const { state: destinationId } = location;
   const [destination, setDestination] = useState(null);
   const [error, setError] = useState(null);
   const [profile, setProfile] = useState(null); 
- 
 
 
   useEffect(() => {
     const fetchComments = async () => {
       try {
-        const response = await axios.get(`http://localhost:3002/api/c_model`);
+        const response = await axios.get(`${apiUrl}api/c_model`);
         setComments(response.data);
       } catch (error) {
         console.error('Error fetching comments:', error);
@@ -41,7 +41,7 @@ function DestinationView() {
   useEffect(() => {
     const fetchDestination = async () => {
       try {
-        const response = await axios.get('http://localhost:3002/api/destinations');
+        const response = await axios.get(`${apiUrl}api/destinations`);
         const filterById = response.data.find(destination => destination._id === destinationId);
         setDestination(filterById);
       } catch (error) {
@@ -60,7 +60,7 @@ function DestinationView() {
     const fetchProfile = async () => {
       const token = localStorage.getItem('token');
       try {
-        const response = await axios.get('http://localhost:3002/api/auth/profile', {
+        const response = await axios.get(`${apiUrl}api/auth/profile`, {
           headers: {
             'Authorization': `Bearer ${token}`,
           },
@@ -196,6 +196,7 @@ function DestinationView() {
           </div>
         </div>
       </div>
+      <Footer></Footer>
     </>
   );
 }

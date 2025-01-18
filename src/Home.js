@@ -5,6 +5,7 @@ import Header from './components/Header';
 import Item from './components/Item';
 import Footer from './components/footer';
 import Search from './components/Search';
+import About from './components/about';
 
 
 function Home(){
@@ -50,6 +51,7 @@ Find Adventure !
  
   <Item category="any" num="4"></Item>
   <Search></Search>
+  <About></About>
 
 <Footer></Footer>
     
