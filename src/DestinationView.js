@@ -162,9 +162,16 @@ function DestinationView() {
         </div>
         <div className="p-8">
           
+
         <h1 className="text-3xl font-bold mb-10 ">Description</h1>
           <p className="text-justify">{destination.description}</p>
-          
+          <h1 className="text-3xl font-bold mb-10 ">Gallery</h1>
+          {
+            destination.images.map((url)=>{
+              return( <img key={url} src={url} alt={destination.name} className=" transition-all  cursor-pointer scale-1 hover:scale-[1.1] md:w-1/3 w-20 h-[30vb] object-cover object-center"/>
+            )})
+          }
+
           <h1 className="text-3xl font-bold mb-10 mt-10">Traveling Condition</h1>
             <GoodBad destination={destination}></GoodBad>
             <Timeline pid={destinationId}></Timeline>
