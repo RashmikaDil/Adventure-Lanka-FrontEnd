@@ -44,7 +44,7 @@ const Profile = () => {
 
     function handleLogOut(){
         localStorage.removeItem('token');
-        window.location.href = '/auth';
+        navTo();
     }
     return (<>
 <ProtectedRoute>
