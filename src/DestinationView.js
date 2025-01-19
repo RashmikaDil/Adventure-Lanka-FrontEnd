@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation, useParams } from "react-router";
+import {useParams } from "react-router";
 import axios from "axios";
 import Header from "./components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
