@@ -7,8 +7,11 @@ const ItemCard = ({ destination, num }) => {
   const navigate = useNavigate();
 
   const handleNavigation = (id) => {
-    navigate(`/destination/${id}`);
-  };
+ 
+   
+    navigate(`destination/${id}`);
+  }
+  
 
   const filteredDestinations = (destination || [])
     .sort((a, b) => b.points - a.points)
@@ -52,6 +55,7 @@ const ItemCard = ({ destination, num }) => {
                   <h2
                     className="text-lg font-semibold text-gray-900 mb-2 cursor-pointer"
                     onClick={() => handleNavigation(dest._id)}
+                  
                   >
                     {dest.name}
                   </h2>
