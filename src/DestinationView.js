@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useParams } from "react-router";
 import axios from "axios";
 import Header from "./components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,8 +19,7 @@ import Footer from './components/footer';
 function DestinationView() {
   const apiUrl = process.env.REACT_APP_API_URL;
   const [comments, setComments] = useState([]);
-  const location = useLocation();
-  const { state: destinationId } = location;
+  const { destinationId } = useParams();
   const [destination, setDestination] = useState(null);
   const [error, setError] = useState(null);
   const [profile, setProfile] = useState(null); 
@@ -165,12 +164,19 @@ function DestinationView() {
 
         <h1 className="text-3xl font-bold mb-10 ">Description</h1>
           <p className="text-justify">{destination.description}</p>
-          <h1 className="text-3xl font-bold mb-10 ">Gallery</h1>
-          {
-            destination.images.map((url)=>{
-              return( <img key={url} src={url} alt={destination.name} className=" transition-all  cursor-pointer scale-1 hover:scale-[1.1] md:w-1/3 w-20 h-[30vb] object-cover object-center"/>
-            )})
-          }
+          <h1 className="text-3xl font-bold mb-10 mt-5">Gallery</h1>
+          <div className="flex flex-wrap w-full">
+  {destination.images.map((url) => (
+    <div className="md:w-1/3 w-full p-1" key={url}>
+      <img
+        src={url}
+        alt={destination.name}
+        className="transition-all cursor-pointer scale-1 hover:scale-[1.1] w-full h-[30vb] object-cover object-center"
+      />
+    </div>
+  ))}
+</div>
+
 
           <h1 className="text-3xl font-bold mb-10 mt-10">Traveling Condition</h1>
             <GoodBad destination={destination}></GoodBad>

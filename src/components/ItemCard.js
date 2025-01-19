@@ -6,11 +6,11 @@ import { faMapLocation, faStar, faTrophy } from "@fortawesome/free-solid-svg-ico
 const ItemCard = ({ destination, num }) => {
   const navigate = useNavigate();
 
-  const handleNavigation = (destination) => {
-    navigate("/destination", { state: destination });
+  const handleNavigation = (id) => {
+    navigate(`/destination/${id}`);
   };
 
-  const filteredDestinations = destination
+  const filteredDestinations = (destination || [])
     .sort((a, b) => b.points - a.points)
     .slice(0, num);
 
@@ -46,6 +46,7 @@ const ItemCard = ({ destination, num }) => {
                   style={{
                     backgroundImage: `url(${dest.imag || "https://via.placeholder.com/300"})`,
                   }}
+                  aria-label={`View details for ${dest.name}`}
                 ></div>
                 <div className="p-4 flex-1 flex flex-col justify-between">
                   <h2

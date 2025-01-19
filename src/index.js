@@ -22,6 +22,7 @@ root.render(
   <Route path='/Profile' element={<Profile></Profile>}></Route>
   <Route path='/Register' element={<Register></Register>}></Route>
   <Route path='/destination' element={<DestinationView></DestinationView>}></Route>
+  <Route path="/destination/:destinationId" element={<DestinationView />} />
 </Routes>
 </BrowserRouter>
 );
