@@ -8,7 +8,7 @@ const GoodBad = ({ destination }) => {
           <div key={index} className="relative flex flex-col items-center mb-4">
      
             <div
-              className={`absolute left-1/2 top-0 w-0.5 h-24 transform -translate-x-1/2 -translate-y-[60px] transition-all duration-500 ${mons.status === 'Special' ? 'bg-pink-500' : 'hidden'}`}
+              className={`absolute left-1/2 top-0 w-0.5 h-24 transform -translate-x-1/2 -translate-y-[60px] transition-all duration-500 ${mons.status === 'Very Good' ? 'bg-pink-500' : 'hidden'}`}
             >
               <div className="w-full relative flex flex-wrap justify-center">
                 <div
