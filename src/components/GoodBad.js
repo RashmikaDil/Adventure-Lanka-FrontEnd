@@ -24,7 +24,7 @@ const GoodBad = ({ destination }) => {
               className={`absolute left-1/2 top-0 w-0.5 h-12 transform -translate-x-1/2 transition-all duration-500 
                 ${mons.status === 'Good' ? 'bg-green-500' : 
                 mons.status === 'Poor' ? 'bg-red-500' : 
-                mons.status === 'Special' ? 'bg-pink-500' : 'bg-yellow-500'}`}
+                mons.status === 'Very Good' ? 'bg-pink-500' : 'bg-yellow-500'}`}
             ></div>
 
         
@@ -32,7 +32,7 @@ const GoodBad = ({ destination }) => {
               className={`relative w-20 h-4 flex justify-center items-center transition-all duration-300 p-4 shadow-md border-2 border-transparent 
                 ${mons.status === 'Good' ? 'bg-green-500 text-white' : 
                 mons.status === 'Poor' ? 'bg-red-500 text-white' : 
-                mons.status === 'Special' ? 'bg-pink-500 text-white' : 
+                mons.status === 'Very Good' ? 'bg-pink-500 text-white' : 
                 'bg-yellow-500 text-white'} 
                 hover:scale-105 hover:shadow-xl`}
                 
