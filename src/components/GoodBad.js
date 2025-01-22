@@ -12,7 +12,7 @@ const GoodBad = ({ destination }) => {
             >
               <div className="w-full relative flex flex-wrap justify-center">
                 <div
-                  className={`w-[300px] pl-4 absolute bg-pink-500 text-white text-center rounded-lg shadow-xl ${mons.status === 'Special' ? 'block' : 'hidden'}`}
+                  className={`w-[300px] pl-4 absolute bg-pink-500 text-white text-center rounded-lg shadow-xl ${mons.status === 'Very Good' ? 'block' : 'hidden'}`}
                 >
                   {mons.description}
                 </div>
