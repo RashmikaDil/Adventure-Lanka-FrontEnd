@@ -184,8 +184,8 @@ function DestinationView() {
             <h1 className="text-3xl font-bold mb-10 mt-10">Weather</h1>
             <WeatherWidget destination={destination}></WeatherWidget>
 
-            <h1 className="text-3xl font-bold mb-10 mt-10">Tourist</h1>
-            <p className="text-justify mb-2">This graph shows Avarage Tourist Attendence at <b>{destination.name}</b> </p>
+            <h1 className="text-3xl font-bold mb-10 mt-10">Visitors</h1>
+            <p className="text-justify mb-2">This graph shows Avarage Tourist Attendence at <b>{destination.name}</b> (not a actual numbers) </p>
           <BarChart mons={destination.mons}></BarChart>
           <h1 className="text-3xl font-bold mb-10 mt-10">Map</h1>
           <MapCard className="z-0" destination={destination}></MapCard>
