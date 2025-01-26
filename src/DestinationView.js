@@ -3,7 +3,7 @@ import {useParams } from "react-router";
 import axios from "axios";
 import Header from "./components/Header";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {  faLocationDot, faMapLocation, faMoneyBill1Wave, faStar, faTable, faTrophy } from "@fortawesome/free-solid-svg-icons";
+import {   faLocationDot, faMapLocation, faMoneyBill1Wave, faStar, faTable, faTrophy } from "@fortawesome/free-solid-svg-icons";
 import CommentForm from "./components/commentForm";
 import CommentCard from "./components/comment";
 import Timeline from "./components/timeLine";
@@ -165,6 +165,7 @@ function DestinationView() {
         <h1 className="text-3xl font-bold mb-10 ">Description</h1>
           <p className="text-justify">{destination.description}</p>
           <h1 className="text-3xl font-bold mb-10 mt-5">Gallery</h1>
+          
           <div className="flex flex-wrap w-full">
   {destination.images.map((url) => (
     <div className="md:w-1/3 w-full p-1" key={url}>
@@ -178,9 +179,13 @@ function DestinationView() {
 </div>
 
 
-          <h1 className="text-3xl font-bold mb-10 mt-10">Traveling Condition</h1>
+          <h1 className="text-3xl font-bold mb-10 mt-10"> Traveling Condition</h1>
+          <p className="text-justify mb-2">This graph shows whether it is a good or Bad time to <b>{destination.name}</b>  each month.</p>
+      
             <GoodBad destination={destination}></GoodBad>
-            <h1 className="text-3xl font-bold mb-10 mt-10">Time Plan</h1>
+            <h1 className="text-3xl font-bold mb-10 mt-10">Timeline</h1>
+            <p className="text-justify mb-2">This is the recommended Timeline For <b>{destination.name}</b> . </p>
+         
             <Timeline pid={destinationId}></Timeline>
             <h1 className="text-3xl font-bold mb-10 mt-10">Weather</h1>
             <WeatherWidget destination={destination}></WeatherWidget>

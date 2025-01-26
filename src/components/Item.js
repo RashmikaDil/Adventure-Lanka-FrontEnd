@@ -112,10 +112,17 @@ const Item = ({ category, num }) => {
                   <p className="text-sm text-gray-600 mb-4">
                     {dest.description || "Discover the beauty of this destination."}
                   </p>
+                    
+                      
+             
+
+
+
                   <div className="flex justify-between items-center mt-auto">
                     <LikeDislike destination={dest} />
-                    <span className="text-xs text-gray-500">{dest.category}</span>
+                    <span className="text-xs text-gray-500"><button className="w-full">Read More</button></span>
                   </div>
+                 
                 </div>
               </div>
             );
