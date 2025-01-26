@@ -141,7 +141,7 @@ function DestinationView() {
                 </tr>
                 <tr>
                   <td><FontAwesomeIcon icon={faStar} /></td>
-                  <td className="p-2 font-bold">Tourist satisfaction: </td>
+                  <td className="p-2 font-bold">Satisfaction ( by Like and Dislike counts):  </td>
                   <td className="p-2">
                     
                   {rating === undefined && "Undefined"}
