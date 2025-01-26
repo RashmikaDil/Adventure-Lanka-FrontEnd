@@ -11,6 +11,7 @@ const ProtectedRoute = ({ children }) => {
 
     try {
         const decodedToken = jwtDecode(token);
+        console.log(decodedToken.exp);
         const currentTime = Date.now() / 1000;
 
         

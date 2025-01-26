@@ -180,6 +180,7 @@ function DestinationView() {
 
           <h1 className="text-3xl font-bold mb-10 mt-10">Traveling Condition</h1>
             <GoodBad destination={destination}></GoodBad>
+            <h1 className="text-3xl font-bold mb-10 mt-10">Time Plan</h1>
             <Timeline pid={destinationId}></Timeline>
             <h1 className="text-3xl font-bold mb-10 mt-10">Weather</h1>
             <WeatherWidget destination={destination}></WeatherWidget>
