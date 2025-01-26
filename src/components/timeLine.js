@@ -41,7 +41,7 @@ const BestTimeTimeline = ({ pid }) => {
         {destination.map((values, index) => (
           <div
             key={index}
-            className="relative bg-white border border-gray-300 rounded-lg shadow-md p-6 w-full md:w-1/5"
+            className="relative cursor-pointer hover:text-white hover:bg-gradient-to-t from-blue-100 to-blue-200 transition-all bg-white border border-gray-300 rounded-lg shadow-md p-6 w-full md:w-1/5"
           >
             {index !== destination.length - 1 && (
               <div className="hidden md:block absolute top-1/2 right-0 transform translate-x-full h-1 w-6 bg-gray-800"></div>

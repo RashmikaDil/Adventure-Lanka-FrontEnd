@@ -6,8 +6,8 @@ import {faMapLocationDot,  } from "@fortawesome/free-solid-svg-icons";
 
 function MapCard({destination}) {
 
-    const position = [7, 81.3];
-    const zoom = 10;
+    const position = [7.8, 80.5];
+    const zoom = 7;
 
 const markerIcon = new L.Icon({
     iconUrl: "https://unpkg.com/leaflet@1.7.1/dist/images/marker-icon.png", 
