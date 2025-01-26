@@ -120,7 +120,7 @@ const Item = ({ category, num }) => {
 
                   <div className="flex justify-between items-center mt-auto">
                     <LikeDislike destination={dest} />
-                    <span className="text-xs text-gray-500"><button className="w-full">Read More</button></span>
+                    <span className="text-xs text-gray-500">{dest.category}</span>
                   </div>
                  
                 </div>
