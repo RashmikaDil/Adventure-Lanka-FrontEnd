@@ -14,7 +14,7 @@ const Item = ({ category, num }) => {
 
 
   const handleNavigation = (destination) => {
-    navigate(`destination/${destination}`);
+    navigate(`../${destination}`);
   };
 
   useEffect(() => {
