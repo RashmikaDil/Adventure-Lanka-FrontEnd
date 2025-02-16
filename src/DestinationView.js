@@ -26,16 +26,7 @@ function DestinationView() {
 
 
 
-    const fetchComments = async () => {
-      try {
-        const response = await axios.get(`${apiUrl}api/c_model`);
-        setComments(response.data);
-      } catch (error) {
-        console.error('Error fetching comments:', error);
-      }
-    };
-    fetchComments();
-  
+
 
   useEffect(() => {
     const fetchDestination = async () => {
@@ -54,6 +45,28 @@ function DestinationView() {
     }
   }, [destinationId,apiUrl]);
   
+  
+  useEffect(() => {
+    const handleComments = async () => {
+      const token = localStorage.getItem("token");
+      try {
+        const response = await axios.get(`${apiUrl}api/destinations/${destinationId}/getcomment`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        setComments(response.data);
+      } catch (error) {
+        console.error("Error fetching comments:", error);
+      }
+    };
+  
+   
+      handleComments();
+    
+  }, [destinationId,apiUrl,comments]);
+  
+
   // Fetch user  data
   useEffect(() => {
     const fetchProfile = async () => {
@@ -88,9 +101,7 @@ function DestinationView() {
   const Dislikes = destination.dislikes?.length || 0;
   const points = Likes + (Likes - Dislikes);
   const rating = (Likes / (Likes + Dislikes) * 5 ).toFixed(1);
-  const filterComments = comments.filter(comment => comment.pId === destinationId );
 
-  
 
 
   return (
@@ -202,14 +213,7 @@ function DestinationView() {
               <CommentForm pId={destinationId} uid={uid} name={name} />
             </div>
             <div className="p-5 w-full md:w-1/2" >
-              {filterComments.map((_id,index) => (
-                <> 
-                  <div key={index} className="flex items-center my-4">
-                    <CommentCard id={_id} uid={uid}></CommentCard>
-                  </div>
-                 
-                </> 
-              ))}
+             <div>{comments.length > 0 ? comments.map(c => <CommentCard key={c} pId={destinationId} id={c} uid={uid}></CommentCard>) : "No comments"}</div>
             </div>  
             
           </div>

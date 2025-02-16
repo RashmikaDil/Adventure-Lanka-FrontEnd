@@ -1,46 +1,58 @@
-import { faTrash, faUser } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import axios from "axios";
 
 const apiUrl = process.env.REACT_APP_API_URL;
 
-function CommentCard({ id, uid }) {
-  const handleDeleteComment = async () => {
-    try {
-      const response = await axios.delete(`${apiUrl}api/c_model/${id._id}`);
+function CommentCard({ id, uid , pId }) {
+  
+  const deleteComment = async () => {
+    const token = localStorage.getItem('token');
+    try{
+      const response = await axios.delete(`${apiUrl}api/destinations/${pId}/comments/${id._id}` ,  {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       console.log("Comment deleted:", response);
-    } catch (error) {
-      console.error("Error deleting comment:", error);
+    }catch(err){
+
+      console.error("Error deleting comment:", err);
+      alert("Failed to delete comment");
+
     }
-  };
+  }
 
   return (
-    <div className="flex items-start bg-white p-4 rounded-md shadow-xl border-[1px]  w-full">
- 
-      <div className="flex justify-center items-center w-12 h-12 rounded-full bg-gray-200">
-        <FontAwesomeIcon icon={faUser} className="text-gray-500" />
-      </div>
-
- 
-      <div className="ml-4 w-full">
-    
-        {id.uid === uid && (
-          <div className="float-right">
-            <FontAwesomeIcon
-              icon={faTrash}
-              className="cursor-pointer text-red-500 hover:text-red-700"
-              onClick={handleDeleteComment}
-            />
-          </div>
-        )}
-
-    
-        <div className="text-sm font-medium text-gray-900">{id.name}</div>
-
    
-        <p className="mt-1 text-sm text-gray-600">{id.content}</p>
-      </div>
-    </div>
+    <>
+
+<div className="grid mt-2 grid-rows-2 grid-cols-8 w-full h-24 bg-white shadow-md rounded-md border border-gray-200">
+
+  <div className="p-2 row-span-2 col-span-1  flex justify-center items-center">
+    <FontAwesomeIcon icon={faUser} />
+  </div>
+
+  <div className="pt-2 col-span-4 font-bold text-m">{id.name}</div>
+
+  
+  <div className="pt-2 col-span-3 text-xs">{new Intl.DateTimeFormat("en-US", { 
+      year: "numeric", 
+      month: "long", 
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"  
+  }).format(new Date(id.createdAt))} </div>
+
+  <div className=" row-span-2  col-span-5 ">{id.content}</div>
+
+
+  <button className={` m-1 row-span-1 col-span-2 text-red-500  rounded-md hover:text-red-700 hover:font-semibold  transition ${id.uid === uid ? "inline-block":"hidden"}`} onClick={deleteComment}>
+    Delete
+  </button>
+</div>
+
+    </>
   );
 }
 

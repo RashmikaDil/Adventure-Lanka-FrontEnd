@@ -6,30 +6,43 @@ const CommentForm = ({uid, name, pId}) => {
   const [content, setContent] = useState('');
   const [message, setMessage] = useState('');
   
-  // Clear content after successful submission
-  useEffect(() => {
-    if (message === 'Comment created successfully!') {
-      setContent('');
-    }
-  }, [message]);
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
+  const fetchComments = async () => {
+    try {
+      const response = await axios.get(`${apiUrl}api/destinations/${pId}/comments`);
+      setContent(response.data);
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+    }
+  };
+  
+  useEffect(() => {
+    fetchComments();
+  });
+
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); 
+    const token = localStorage.getItem('token');
 
     try {
-      const response = await axios.post(`${apiUrl}api/c_model/create`, {
-        uid,
-        name,
-        pId,
-        content,
-      });
+      const response = await axios.post(
+        `${apiUrl}api/destinations/${pId}/comments`,
+        { name, content }, 
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
 
       setMessage('Comment created successfully!');
       console.log(response.data);
     } catch (error) {
-      setMessage('Error creating comment.');
+      setMessage(`Error creating comment: ${error.response?.data?.message || error.message}`);
       console.error(error);
-    }
+    };
+    
   };
 
   return (
